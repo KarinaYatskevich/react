@@ -59,13 +59,13 @@ export const usersReducer = (state: any = initialState, action: any) => {
   }
 };
 
-export const followSuccess = (userId: any) => {
+export const followSuccess = (userId: number) => {
   return {
     type: FOLLOW,
     userId: userId,
   };
 };
-export const unfollowSuccess = (userId: any) => {
+export const unfollowSuccess = (userId: number) => {
   return {
     type: UNFOLLOW,
     userId: userId,
@@ -77,19 +77,19 @@ export const setUsers = (users: any) => {
     users: users,
   };
 };
-export const setCurrentPage = (currentPage: any) => {
+export const setCurrentPage = (currentPage: number) => {
   return {
     type: SET_CURRENT_PAGE,
     currentPage: currentPage,
   };
 };
-export const setTotalUsersCount = (totalUsersCount: any) => {
+export const setTotalUsersCount = (totalUsersCount: number) => {
   return {
     type: SET_TOTAL_USERS_COUNT,
     count: totalUsersCount,
   };
 };
-export const toggleIsFetching = (isFetching: any) => {
+export const toggleIsFetching = (isFetching: boolean) => {
   return {
     type: TOOGLE_IS_FETCHING,
     isFetching: isFetching,
