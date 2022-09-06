@@ -1,0 +1,89 @@
+.myposts{
+    margin: 0px 0px 0px 195px;
+    color: white;
+    display: flex;
+    gap: 77px;
+}
+.postsPart{
+    padding: 20px 20px 50px 20px;
+    width: 596px;
+    background: rgba(0, 13, 46, 0.72);
+}
+
+.textarea{
+    resize: none;
+}
+.textarea{
+    width: 498px;
+    max-height: 34px;
+    resize: none;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    margin: 0px 0px 40px 0px;
+}
+.textarea::placeholder{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.53);
+    padding: 10px 0px 0px 24px;
+}
+
+.add{
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+h2{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.add{
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.item{
+    
+}
+
+.img{
+    border-radius: 35px;
+    width: 50px;
+    height: 50px;
+}
+
+.messages{
+    display: flex;
+    gap: 100px;
+}
+
+.message{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.likes{
+    float: right;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 120%;
+    margin: -10px 10px 0px 0px;
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}

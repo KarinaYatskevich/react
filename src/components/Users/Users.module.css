@@ -1,0 +1,27 @@
+._container {
+    max-width: 1157px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    box-sizing: content-box;
+    border-left: 1px solid white;
+    border-top: 1px solid #FFFFFF;
+    border-right: 1px solid white;
+
+}
+
+.users{
+    background: #171719;
+    color: #FFFFFF;
+}
+
+.userPhoto{
+    width: 100px;
+    height: 100px;
+}
+.selectedPage{
+    font-weight: bold;
+}
+.img{
+    width: 100px;
+    height: 100px;
+}

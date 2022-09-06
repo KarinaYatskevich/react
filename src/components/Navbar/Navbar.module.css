@@ -1,0 +1,45 @@
+.logo{
+    width: 91.5px;
+    height: 50px;
+    border-right: 1px solid #FFFFFF;
+}
+.navbar{
+    background-color: #171719;
+    height: 50px;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    gap: 107px;
+}
+
+._container {
+    max-width: 1157px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    box-sizing: content-box;
+    display: flex;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+.navbarItems{
+    margin: 0 auto;
+    padding: 17px 0px 0px 0px;
+}
+.item a{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+}
+
+.item a:focus{
+    color: rgb(199, 199, 199)
+}
+
+.lastItem{
+    border-left: 1px solid #FFFFFF; 
+    padding: 15px 21px 15px 21px;
+    margin: -15px 0px 0px 0px;
+}

@@ -1,0 +1,11 @@
+.wrapper__container{
+  background-color: rgb(223, 219, 220);
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #171719;
+}
