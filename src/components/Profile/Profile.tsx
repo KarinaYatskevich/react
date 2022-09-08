@@ -7,7 +7,7 @@ const Profile = (props:any) => {
     return (
       <div className={s.profile}>
         <div className={s._container}>
-          <Person profile={props.profile}/>
+          <Person profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
           <MyPostsContainer/>
         </div>
       </div>

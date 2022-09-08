@@ -1,5 +1,6 @@
 import Preloader from '../../common/Preloader/Preloader'
 import s from './Person.module.css'
+import ProfileStatus from './ProfileStatus'
 
 
 const Person = (props) => {
@@ -13,6 +14,7 @@ const Person = (props) => {
         <div className={s.personInformation}>
           <div className={s.personInformation_name}>
             <p className={s.name}>{props.profile.fullName}</p>
+            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
           </div>
           <div className={s.personInformation_info}>
             <div className={s.parameters}>
