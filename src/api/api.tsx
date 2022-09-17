@@ -9,7 +9,7 @@ const instance = axios.create({
 })
 
 const usersAPI = {
-    getUsers(currentPage:number = 1, pageSize:number = 10){
+    requestUsers(currentPage:number = 1, pageSize:number = 10){
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
@@ -37,7 +37,13 @@ export const profileAPI = {
 export const authAPI = {
     me(){
         return instance.get(`auth/me`)
-    }
+    },
+    login(email:string, password:string, rememberMe:boolean=false){
+        return instance.post(`auth/login`, {email, password, rememberMe})
+    },
+    logout(){
+        return instance.delete(`auth/login`)
+    },
 }
 
 export default usersAPI

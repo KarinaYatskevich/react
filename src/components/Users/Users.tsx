@@ -1,28 +1,20 @@
 import s from './Users.module.css'
 import userPhoto from '../../assets/images/bg.jpg'
 import { NavLink } from 'react-router-dom'
+import Paginator from '../common/Paginator/Paginator'
 
 
-let Users = (props) => {
-
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-
-    let pages = []
-    for(let i=1; i <= pagesCount; i++){
-        pages.push(i)
-    }
+let Users = (props:any) => {
     
     return (
         <div className={s.users}>
             <div className={s._container}>
-                <div>
-                    {pages.map((p) => {
-                        return <span className={props.currentPage === p && s.selectedPage}
-                                    onClick={ (e) => { props.onPageChanged(p)}} >{p}</span>
-                    })}
-                </div>
+                <Paginator currentPage={props.currrentPage} 
+                            onPageChanged={props.onPageChanged} 
+                            totalUsersCount={props.totalUsersCount} 
+                            pageSize={props.pageSize}/>
                 {
-                    props.users.map((u)=> <div key={u.id}>
+                    props.users.map((u:any)=> <div key={u.id}>
                         <span>
                             <div>
                                 <NavLink to={'./../profile/'+ u.id}>
@@ -31,10 +23,10 @@ let Users = (props) => {
                             </div>
                             <div>
                                 {u.followed 
-                                    ? <button disabled={props.followingInProgress.some(id => id === u.id)} 
+                                    ? <button disabled={props.followingInProgress.some((id:number) => id === u.id)} 
                                     onClick={ () => {props.unfollow(u.id)
                                         }}>Unfollow</button>
-                                    : <button disabled={props.followingInProgress.some(id => id === u.id)} 
+                                    : <button disabled={props.followingInProgress.some((id:number) => id === u.id)} 
                                     onClick={ () => {props.follow(u.id)
                                         }}>Follow</button>
                                 }

@@ -1,10 +1,9 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
-import { addPostActionCreator, updateNewPostActionCreator } from "../../../redux/profile-reduse";
 
 const MyPosts = (props:any) => {
-  let postElement = props.posts.map((p:any) => (
+  let postElement = [...props.posts].reverse().map((p:any) => (
     <Post message={p.message} like={p.like} />
   ));
 
