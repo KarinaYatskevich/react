@@ -1,4 +1,4 @@
-import s from './Users.module.css'
+import s from './Paginator.module.css'
 
 
 let Paginator = (props) => {

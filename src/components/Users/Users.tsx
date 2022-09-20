@@ -1,7 +1,6 @@
 import s from './Users.module.css'
-import userPhoto from '../../assets/images/bg.jpg'
-import { NavLink } from 'react-router-dom'
 import Paginator from '../common/Paginator/Paginator'
+import User from './User'
 
 
 let Users = (props:any) => {
@@ -14,35 +13,8 @@ let Users = (props:any) => {
                             totalUsersCount={props.totalUsersCount} 
                             pageSize={props.pageSize}/>
                 {
-                    props.users.map((u:any)=> <div key={u.id}>
-                        <span>
-                            <div>
-                                <NavLink to={'./../profile/'+ u.id}>
-                                    <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={s.userPhoto} />
-                                </NavLink>
-                            </div>
-                            <div>
-                                {u.followed 
-                                    ? <button disabled={props.followingInProgress.some((id:number) => id === u.id)} 
-                                    onClick={ () => {props.unfollow(u.id)
-                                        }}>Unfollow</button>
-                                    : <button disabled={props.followingInProgress.some((id:number) => id === u.id)} 
-                                    onClick={ () => {props.follow(u.id)
-                                        }}>Follow</button>
-                                }
-                            </div>
-                        </span>
-                        <span>
-                            <span>
-                                <div>{u.name}</div>
-                                <div>{u.status}</div>
-                            </span>
-                            <span>
-                                <div>{"u.location.country"}</div>
-                                <div>{"u.location.city"}</div>
-                            </span>
-                        </span>
-                    </div>)
+                props.users.map((u:any) => <User user={u} follow={props.follow} unfollow={props.unfollow} followingInProgress={props.followingInProgress} key={u.id}/>
+                )
                 }
             </div>
         </div>

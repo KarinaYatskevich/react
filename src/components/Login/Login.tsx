@@ -3,8 +3,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import {login} from "./../../redux/auth-reduse"
-import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
 import s from './Login.module.css'
 
 
