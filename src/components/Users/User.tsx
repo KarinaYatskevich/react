@@ -1,7 +1,6 @@
 import s from './Users.module.css'
 import userPhoto from '../../assets/images/bg.jpg'
 import { NavLink } from 'react-router-dom'
-import Paginator from '../common/Paginator/Paginator'
 
 
 let User = (props:any) => {
