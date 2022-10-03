@@ -1,11 +1,12 @@
+.personInformation_info{
+    margin: 15px 0px 0px 0px;
+
+}
 .person{
     margin: 126px 0px 73px 195px;
     color: white;
     display: flex;
     gap: 212px;
-}
-
-.personInformation_name{
 }
 
 .name{

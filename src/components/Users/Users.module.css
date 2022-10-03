@@ -6,7 +6,6 @@
     border-left: 1px solid white;
     border-top: 1px solid #FFFFFF;
     border-right: 1px solid white;
-
 }
 
 .users{
@@ -17,9 +16,53 @@
 .userPhoto{
     width: 100px;
     height: 100px;
+    border-radius: 50%;
+    margin: -30px 0px 0px 0px;
 }
 
 .img{
     width: 100px;
     height: 100px;
+}
+.buttons{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    background: #080675;
+    border: 1px solid #080675;
+    padding: 4px 18px;
+    align-items: end;
+
+}
+.person_name{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    padding: 9px 0px 12px 0px;
+}
+.person_status{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(255, 255, 255, 0.53);
+}
+.user_information{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px 0px 0 150px;
+}
+.user_cart{
+    background: #061028;
+    border-radius: 2px;
+    width: 222px;
+    height: 229px;
+    text-align: center;
+    display: grid;
 }

@@ -14,12 +14,13 @@
     resize: none;
 }
 .textarea{
-    width: 498px;
+    width: 480px;
     max-height: 34px;
     resize: none;
     background-color: transparent;
     border: 1px solid #FFFFFF;
     margin: 0px 0px 40px 0px;
+    color: #9a9898;
 }
 .textarea::placeholder{
     font-family: 'Inter';
@@ -31,28 +32,19 @@
 }
 
 .add{
-    margin: 10px 0 10px 0;
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 5px;
     color: #FFFFFF;
+    background-color: transparent;
+    margin: 0px 0px 0px 15px;
 }
+.input_area{
+    display: flex;
+}
+
 h2{
     font-family: 'Inter';
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
-}
-
-.add{
-    margin: 10px 0 10px 0;
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 5px;
-}
-
-.item{
-    
 }
 
 .img{

@@ -13,13 +13,13 @@ const usersAPI = {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
-    follow(userId:number){
+    follow(userId:number | null){
         return instance.post(`follow/${userId}`)
     },
-    unfollow(userId:number){
+    unfollow(userId:number | null){
         return instance.delete(`follow/${userId}`)
     },
-    getProfile(userId:number){
+    getProfile(userId:any){
         return profileAPI.getProfile(userId)
     },
 }
@@ -32,6 +32,19 @@ export const profileAPI = {
     },
     updateStatus(status:string){
         return instance.put(`profile/status`, {status: status})
+    },
+    savePhoto(photoFile:any) {
+        const formData = new FormData();
+        formData.append("image", photoFile);
+
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    },
+    saveProfile(profile:any) {
+        return instance.put(`profile`, profile );
     }
 }
 export const authAPI = {

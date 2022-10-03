@@ -6,9 +6,6 @@ const Post = (props:any) => {
           <div className={s.messages}>
             <p className={s.message}>{props.message}</p>
           </div>
-          <div> 
-              <span className={s.likes}>{props.like} likes</span>
-            </div>
         </div>
     )
 }

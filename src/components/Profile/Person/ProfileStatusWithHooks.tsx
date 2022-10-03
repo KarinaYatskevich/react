@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import s from './Person.module.css'
 
 const ProfileStatuswithHooks = (props:any) => {
 

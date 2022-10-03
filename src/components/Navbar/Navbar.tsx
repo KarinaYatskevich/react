@@ -17,15 +17,12 @@ const Navbar = (props:any) => {
               <div className={s.item}>
                 <NavLink to='/users'>Users </NavLink>
               </div>
-              <div className={s.item}>
-                <NavLink to='/music'>Music </NavLink>
-              </div>
-              <div className={s.item}>
-                {props.isAuth ? props.login
-                  :<NavLink to='/login'>Login </NavLink>}
-              </div>
               <div className={`${s.item} ${s.lastItem}`}>
-                <NavLink to='/settings'>Settings </NavLink>
+                <div className={s.loginBlock}>
+                  { props.isAuth
+                      ? <div className={s.login_name}>{props.login}  <button onClick={props.logout} className={s.log_button}>Log out</button> </div>
+                      : <NavLink to={'/login'} className={s.log_button}>Login</NavLink> }
+                </div>
               </div>
             </nav>
           </div>

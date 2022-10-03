@@ -1,6 +1,5 @@
 import Preloader from '../../common/Preloader/Preloader'
 import s from './Person.module.css'
-import ProfileStatus from './ProfileStatus'
 import ProfileStatuswithHooks from './ProfileStatusWithHooks'
 
 
@@ -19,16 +18,32 @@ const Person = (props) => {
           </div>
           <div className={s.personInformation_info}>
             <div className={s.parameters}>
+            {props.profile.aboutMe &&
               <p className={s.parameter}>About me</p>
+            }
+            {props.profile.contacts.vk &&  
               <p className={s.parameter}>Vk</p>
+            }
+            {props.profile.contacts.instagram && 
               <p className={s.parameter}>Instagram</p>
+            }
+            {props.profile.contacts.facebook && 
               <p className={s.parameter}>Facebook</p>
+            }
             </div>
             <div className={s.answers}>
-              <p className={s.answer}>{props.profile.aboutMe}</p>
-              <p className={s.answer}>{props.profile.contacts.vk}</p>
-              <p className={s.answer}>{props.profile.contacts.instagram}</p>
-              <p className={s.answer}>{props.profile.contacts.facebook}</p>
+              {props.profile.aboutMe && 
+                <p className={s.answer}>{props.profile.aboutMe}</p>
+              }
+              {props.profile.contacts.vk &&  
+                <p className={s.answer}>{props.profile.contacts.vk}</p>
+              }
+              {props.profile.contacts.instagram && 
+                <p className={s.answer}>{props.profile.contacts.instagram}</p>
+              }
+              {props.profile.contacts.facebook && 
+                <p className={s.answer}>{props.profile.contacts.facebook}</p>
+              }
             </div>
           </div>
         </div>

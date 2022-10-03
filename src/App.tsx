@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
 import './App.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
@@ -27,12 +25,11 @@ class App extends Component<any, any>{
       <div className='wrapper'>
           <NavbarContainer/>
           <Routes>
-            <Route path='/profile/:userId'element={<ProfileContainer  />}/>
+            <Route path='/profile/:userId' element={<ProfileContainer/>}/>
+            <Route path='/profile' element={<ProfileContainer/>}/>
             <Route path='/dialogs' element={<DialogsContainer/>}/>
-            <Route path='/users' element={<UsersContainer />}/>
-            <Route path='/music' element={<Music/>}/>
-            <Route path='/settings' element={<Settings />}/>
-            <Route path='/login' element={<Login />}/>
+            <Route path='/users' element={<UsersContainer/>}/>
+            <Route path='/login' element={<Login/>}/>
           </Routes>
       </div>
     );

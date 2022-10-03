@@ -4,7 +4,7 @@ import React from "react";
 
 const MyPosts = (props:any) => {
   let postElement = [...props.posts].reverse().map((p:any) => (
-    <Post message={p.message} like={p.like} />
+    <Post key={p.id} message={p.message}/>
   ));
 
   let newPostElement:any = React.createRef();
@@ -22,7 +22,7 @@ const MyPosts = (props:any) => {
     <div className={s.myposts}>
       <h2>My posts</h2>
       <div className={s.postsPart}>
-        <div>
+        <div className={s.input_area}>
           <textarea
             onChange={onPostChange}
             className={s.textarea}
