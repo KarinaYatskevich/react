@@ -1,14 +1,16 @@
-import { authAPI } from "../api/api"
 import { getAuthUserData } from "./auth-reduse"
 
-const SET_USER_DATA = 'SET_USER_DATA'
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
 
-let initialState = {
+export type InitialStateType = {
+    initialized: boolean
+}
+
+let initialState:InitialStateType = {
     initialized: false,
 }
 
-export const appReducer = (state:any = initialState, action:any) => {
+export const appReducer = (state = initialState, action:any) => {
 
     switch(action.type){
         case INITIALIZED_SUCCESS:
@@ -21,7 +23,11 @@ export const appReducer = (state:any = initialState, action:any) => {
     }
 }
 
-export const initializedSuccess =  () => {
+type InitializedSuccessActionType = {
+    type: typeof INITIALIZED_SUCCESS //'INITIALIZED_SUCCESS'
+}
+
+export const initializedSuccess =  (): InitializedSuccessActionType  => {
     return {
         type: INITIALIZED_SUCCESS,
     }
