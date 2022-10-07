@@ -3,11 +3,12 @@
 }
 
 .wrapper {
-  min-height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   background: #171719;
+  color: white;
+  min-height: 100vh;
 }
 
 .wait{

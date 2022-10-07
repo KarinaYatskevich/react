@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import {Navigate} from 'react-router-dom';
 import {login} from "../../redux/auth-reduse";
 
-
 const validateLoginForm = values => {
     const errors = {};
     if (!values.email) {

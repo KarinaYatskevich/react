@@ -1,8 +1,22 @@
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import React from "react";
+import {PostType} from '../../../types/types';
 
-const MyPosts = (props:any) => {
+export type MapPropsType = {
+  posts: Array<PostType>
+}
+export type DispatchPropsType = {
+  addPost: (newPostText: string) => void
+}
+
+type PropsType = {
+  addPost: any
+  updateNewPostText: (text: string) => void
+  newPostText: any
+}
+
+const MyPosts: React.FC<MapPropsType & PropsType & DispatchPropsType> = props => {
   let postElement = [...props.posts].reverse().map((p:any) => (
     <Post key={p.id} message={p.message}/>
   ));

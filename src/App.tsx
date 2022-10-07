@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
@@ -10,8 +10,15 @@ import { connect } from 'react-redux';
 import {initializeApp} from "./redux/app-reduse"
 import { useLocation, useNavigate, useParams,} from "react-router-dom"
 import { compose } from 'redux';
+import { AppStateType } from './redux/redux-store';
 
-class App extends Component<any, any>{
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+    initializeApp: () => void
+}
+
+
+class App extends Component<MapPropsType & DispatchPropsType>{
 
   componentDidMount(){
     this.props.initializeApp()
@@ -27,16 +34,18 @@ class App extends Component<any, any>{
           <Routes>
             <Route path='/profile/:userId' element={<ProfileContainer/>}/>
             <Route path='/profile' element={<ProfileContainer/>}/>
+            <Route path='/' element={<Navigate to="/profile" />}/>
             <Route path='/dialogs' element={<DialogsContainer/>}/>
             <Route path='/users' element={<UsersContainer/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='*' element={<div>404 not found</div>}/>
           </Routes>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state:any) => ({
+const mapStateToProps = (state:AppStateType) => ({
   initialized: state.app.initialized
 })
 

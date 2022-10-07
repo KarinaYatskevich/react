@@ -1,4 +1,5 @@
-import axios from "axios"
+import axios, {AxiosResponse} from "axios";
+import {ProfileType} from '../types/types';
 
 const instance = axios.create({
     withCredentials: true,
@@ -13,13 +14,13 @@ const usersAPI = {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
-    follow(userId:number | null){
+    follow(userId:number){
         return instance.post(`follow/${userId}`)
     },
-    unfollow(userId:number | null){
+    unfollow(userId:number){
         return instance.delete(`follow/${userId}`)
     },
-    getProfile(userId:any){
+    getProfile(userId:number){
         return profileAPI.getProfile(userId)
     },
 }
@@ -43,16 +44,41 @@ export const profileAPI = {
             }
         });
     },
-    saveProfile(profile:any) {
+    saveProfile(profile:ProfileType) {
         return instance.put(`profile`, profile );
     }
 }
+
+export enum ResultCodesEnum {
+    Success = 0,
+    Error = 1
+}
+
+type MeResponseType = {
+    data: {
+        id: number
+        email: string
+        login: string
+    }
+    resultCode: ResultCodesEnum
+    messages: Array<string>
+}
+
+type LoginResponseType = {
+    data: {
+        userId: number
+    }
+    resultCode: ResultCodesEnum
+    messages: Array<string>
+}
+
 export const authAPI = {
     me(){
-        return instance.get(`auth/me`)
+        return instance.get<MeResponseType>(`auth/me`).then(res => res.data)
     },
     login(email:string, password:string, rememberMe:boolean=false){
-        return instance.post(`auth/login`, {email, password, rememberMe})
+        return instance.post<LoginResponseType>(`auth/login`, { email, password, rememberMe})
+            .then(res => res.data);
     },
     logout(){
         return instance.delete(`auth/login`)

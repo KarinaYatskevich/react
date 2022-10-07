@@ -5,21 +5,43 @@ import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
 import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsers } from '../../redux/users-selectors';
+import { UserType } from '../../types/types';
+import { AppStateType } from '../../redux/redux-store';
 
-class UsersContainer extends React.Component
-//<any, { className: string | boolean }, {}>
-{
+type MapStatePropsType = {
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalUsersCount: number
+    users: Array<UserType>
+    followingInProgress: Array<number>
+}
+
+type MapDispatchPropsType = {
+    getUsers: (currentPage: number, pageSize: number) => void
+    unfollow: (userId: number) => void
+    follow: (userId: number) => void
+}
+
+
+type PropsType = MapStatePropsType & MapDispatchPropsType 
+
+class UsersContainer extends React.Component<PropsType>{
 
     componentDidMount(){
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize} = this.props;
+            this.props.getUsers(currentPage, pageSize);
     }
 
-    onPageChanged = (pageNumber) => {
-        this.props.requestUsers(pageNumber, this.props.pageSize)
+    onPageChanged = (pageNumber:number) => {
+        const {pageSize} = this.props;
+        { this.props.getUsers &&
+            this.props.getUsers(pageNumber, pageSize);
+        }
     }
+
 
     render() {
-
         return <>
             {this.props.isFetching ? <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount} 
@@ -46,7 +68,7 @@ class UsersContainer extends React.Component
     }
 }*/
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
@@ -58,5 +80,5 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers: requestUsers})
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers: requestUsers})
 ) (UsersContainer)

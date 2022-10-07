@@ -2,8 +2,15 @@ import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import React from 'react'
+import {InitialStateType} from '../../redux/dialogs-reduse'
 
-const Dialogs = (props:any) => {
+type PropsType = {
+    dialogsPage: InitialStateType
+    sendMessage: any
+    updateNewMessageBody: (body: string) => void
+}
+
+const Dialogs: React.FC<PropsType> = (props) => {
 
     let state = props.dialogsPage
 

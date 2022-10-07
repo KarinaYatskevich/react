@@ -2,9 +2,17 @@ import Preloader from '../../common/Preloader/Preloader'
 import s from './Person.module.css'
 import ProfileStatuswithHooks from './ProfileStatusWithHooks'
 import userPhoto from "../../../assets/images/bg.jpg"
+import {ProfileType} from '../../../types/types';
 
+type PropsType = {
+  profile: ProfileType | null
+  status: string
+  isOwner: boolean
+  updateStatus: (status: string) => void
+  savePhoto: (file: File) => void
+}
 
-const Person = (props) => {
+const Person: React.FC<PropsType> = (props) => {
 
   if (!props.profile){
     return <Preloader/>
@@ -50,9 +58,9 @@ const Person = (props) => {
         </div>
         <div className={s.personPhoto}>
           <img className={s.img} src={
-                props.profile.photos.small != null
-                ? props.profile.photos.small
-                : userPhoto
+            props.profile.photos.small != null
+            ? props.profile.photos.small
+            : userPhoto
           }></img>
         </div>
       </div>

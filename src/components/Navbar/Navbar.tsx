@@ -1,7 +1,15 @@
 import s from'./Navbar.module.css'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = (props:any) => {
+export type MapPropsType = {
+  isAuth: boolean
+  login: string | null
+}
+export type DispatchPropsType = {
+  logout: () => void
+}
+
+const Navbar: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     return (
       <div className={s.navbar}> 
         <div className={s._container}>

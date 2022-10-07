@@ -1,8 +1,16 @@
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/bg.jpg";
 import { NavLink } from "react-router-dom";
+import {UserType} from '../../types/types';
 
-let User = (props: any) => {
+type PropsType = {
+    user: UserType
+    followingInProgress: Array<number>
+    unfollow: (userId: number) => void
+    follow: (userId: number) => void
+}
+
+let User: React.FC<PropsType> = (props) => {
     return (
             <div className={s.user_cart}>
                 <div>
